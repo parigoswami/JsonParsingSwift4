@@ -15,7 +15,25 @@ class ViewController: UIViewController {
     
     var names: [String] = []
     var email: [String] = []
-    var name : String = ""
+    
+    
+    struct ContactnInfo {
+        var name : String = ""
+        var mail : String = ""
+        
+        init?(dict:[String:Any]){
+            guard
+                let name = dict["name"] as? String,
+                let mail = dict["email"] as? String
+                
+            else{return nil}
+            self.name = name
+            self.mail = mail
+    
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,15 +48,10 @@ class ViewController: UIViewController {
             if let allContacts = try JSONSerialization.jsonObject(with: allContactsData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String : Any] {
                 let arrJSON = allContacts["contacts"] as! [Any]
                 
-                for index in 0...arrJSON.count-1{
-                    let aObject = arrJSON[index] as! [String : Any]
-                      name = aObject["name"] as! String
-                    print("\(index) Name is \(name)")
-//                    names.append(aObject["name"] as! String)
-//                    email.append(aObject["email"] as! String)
-//                    print("\nName is ",names)
-//                    print("\nEmail is ",email,"\n")
-                }
+                let aObj = arrJSON[0] as! [String:Any]
+                let EmplInfo = ContactnInfo(dict: aObj)
+                print(EmplInfo?.name)
+                print(EmplInfo?.mail)
             }
             
             
