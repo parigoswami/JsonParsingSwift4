@@ -431,7 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9NXT87QQZN;
+				DEVELOPMENT_TEAM = Q6S3V4W94U;
 				INFOPLIST_FILE = JsonSwift4ImagesParsing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pari.JsonSwift4ImagesParsing;
@@ -446,7 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9NXT87QQZN;
+				DEVELOPMENT_TEAM = Q6S3V4W94U;
 				INFOPLIST_FILE = JsonSwift4ImagesParsing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pari.JsonSwift4ImagesParsing;
