@@ -22,8 +22,20 @@ class ViewController: UIViewController {
             }else{
                 if let myData = data{
                     do{
-                        let myJson = try JSONSerialization.jsonObject(with: myData, options: JSONSerialization.ReadingOptions.mutableContainers)
-                        print(myJson)
+                        let myJson = try JSONSerialization.jsonObject(with: myData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+//                        print(myJson)
+                        if let face = myJson["face"] as AnyObject?{
+//                            print(face ?? "")
+                            if let mouth = face["mouth"] as! NSArray?{
+                                print(mouth[0])
+                               
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        
                     }catch{
                         print("Catching Error")
                     }
