@@ -14,7 +14,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://api.adorable.io/avatars/list")
+        
+        var tempArr = [String]()
+        
+        let url = URL(string: "https://jsonplaceholder.typicode.com/users")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error2) in
             
             if(error2 != nil){
@@ -23,18 +26,19 @@ class ViewController: UIViewController {
                 if let myData = data{
                     do{
                         let myJson = try JSONSerialization.jsonObject(with: myData, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-//                        print(myJson)
-                        if let face = myJson["face"] as AnyObject?{
-//                            print(face ?? "")
-                            if let mouth = face["mouth"] as! NSArray?{
-                                print(mouth[0])
-                               
+                        if let myArr = myJson as? NSArray{
+                            for i in myArr {
+                                print("\nElement is:\n")
+                                if let myDict = i as? NSDictionary {
+//                                    print(myDict.value(forKey: "name")!)
+                                    tempArr.append(myDict.value(forKey: "name") as! String)
+                                    
+                                    
+                                }
+                                
                             }
-                            
+                            print("tempArr is \n",tempArr)
                         }
-                        
-                        
-                        
                         
                     }catch{
                         print("Catching Error")
